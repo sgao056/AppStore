@@ -1,0 +1,33 @@
+.rotate{
+    overflow-x: scroll;
+    margin: 0 20px;
+    width: 100%;
+    .rotate_image{
+        margin-left: 20px;
+        border-radius: 20px;
+    }
+    .rotate_image:nth-last-child(){
+        margin-right:20px;
+    }
+    .rotate_image:nth-child(1){
+        margin-left:0px;
+    }
+}
+
+.rotate_nobar{
+    overflow-x: scroll;
+    margin: 0 20px;
+    width: 100%;
+    .rotate_image:nth-last-child(){
+        margin-right:0px;
+    }
+    .rotate_image{
+        margin-right: 20px;
+        border-radius: 20px;
+        max-width: 100%;
+    }
+   
+}
+.rotate_nobar::-webkit-scrollbar {
+  display: none;
+}

@@ -1,0 +1,23 @@
+.searchbar{
+   position: relative;
+   margin: 60px 0 0 0; 
+   padding:10px 0;
+   height:60px;
+   .searchbar_input{
+       width:calc(100% - 20px);
+       height:100%;
+       margin:0 10px;
+       padding: 8px 12px 8px 36px;
+       border-radius: 10px;
+       font-size: 20px;
+       background-color: #eeeeee;
+       border:none;
+   }
+   .searchbar_icon{
+       position: absolute;
+       left:22px;
+       top:24px;
+       display: flex;
+       align-items: center;
+   }
+}
