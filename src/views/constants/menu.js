@@ -1,16 +1,16 @@
 const menuData = [
     {
-      icon: 'iconsminds-file-edit',
+      icon: 'simple-icon-notebook',
       label: 'Latest',
       to: "/latest",
     },
     {
-      icon: 'iconsminds-file-edit',
+      icon: 'simple-icon-star',
       label: 'Popular',
       to: "/popular",
     },
     {
-      icon: 'iconsminds-file-edit',
+      icon: 'simple-icon-social-dropbox',
       label: 'Tweaked',
       to: "/tweaked",
     }
