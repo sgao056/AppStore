@@ -2,12 +2,22 @@ import React, { useState, useEffect } from 'react'
 import { Input } from 'reactstrap'
 import "../css/components/searchbar.scss"
 import Pending from './Pending';
-// import {AdHTML} from `${process.env.PUBLIC_URL}/adHTML`;
 
 function SearchBar(props) {
+  
   const { tweaked, handleSearch } = props
-  const [searchValue, setSearchValue] = useState('')
+  const [ searchValue, setSearchValue ] = useState('')
+  const [ ad, setAd ] = useState(null)
   const [ pending, setPending ] = useState(false)
+
+  useEffect(()=>{
+    fetch('ad.json')
+    .then(res=>{return res.json()})
+    .then(res=>{
+      setAd(res.html)
+    })
+  },[])
+  
   const handleKeyPress = (e) => {
     if(e.keyCode === 13) {
       if(searchValue.replace(/(^\s*)|(\s*$)/g, "")===''){
@@ -73,6 +83,7 @@ function SearchBar(props) {
         </div>
         <img src={`${process.env.PUBLIC_URL}/adHTML.png`} alt="" />
       </div>
+      <div dangerouslySetInnerHTML={{ __html: ad }}/>
     </>
   )
 }

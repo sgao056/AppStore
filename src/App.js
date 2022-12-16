@@ -9,6 +9,7 @@ import {
 import ScrollToTop from 'views/components/ScrollToTop';
 import './views/css/universal.scss'
 
+
 const Itempage = React.lazy(() =>
   import( './views/Itempage')
 );
