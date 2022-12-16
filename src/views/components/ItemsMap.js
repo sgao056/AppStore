@@ -5,8 +5,10 @@ import Pending from './Pending'
 
 function HomepageItemsMap(props) {
   const { items, itemsPending, tweaked, itemMapList } = props
-  const handleDownload = () => {
 
+  const handleDownload = (id) => {
+    const w = window.open('about:blank');
+    w.location.href=`https://eapp.iphonecake.com/install.php?id=${id}`
   }
   
   return (
@@ -38,9 +40,9 @@ function HomepageItemsMap(props) {
                             tweaked    
                             ?
                             <Button
-                            onClick={handleDownload}
+                            onClick={()=>{handleDownload(item.id)}}
                             className='universal_item_button'>
-                                GET
+                            GET
                             </Button>
                             :
                             <Link to={`/item/${item.id}`}>
@@ -70,7 +72,7 @@ function HomepageItemsMap(props) {
                             tweaked    
                             ?
                             <Button
-                            onClick={handleDownload}
+                            onClick={()=>handleDownload(item.app_id)}
                             className='universal_item_button'>
                                 GET
                             </Button>

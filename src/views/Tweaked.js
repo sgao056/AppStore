@@ -90,7 +90,7 @@ function Tweaked({
         </div>
         <Sidenav menuModalOpen={menuModalOpen} setMenuModalOpen={setMenuModalOpen}/>
         <HomeHeader  menuModalOpen={menuModalOpen} setMenuModalOpen={setMenuModalOpen}/>
-        <SearchBar handleSearch={handleSearch}/>
+        <SearchBar handleSearch={handleSearch} tweaked/>
         <ItemsMap items={reduxAppList.tweaked_applist} itemsPending={appListPending} itemMapList={itemMapList} tweaked/>
     </div>
   )

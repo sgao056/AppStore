@@ -4,6 +4,12 @@ import { withRouter } from 'react-router-dom'
 import '../css/components/itemHeader.scss'
 
 function ItemHeader(props) {
+
+  const handleDownload = () => {
+      const w = window.open('about:blank');
+      w.location.href=`https://eapp.iphonecake.com/install.php?id=${window.location.hash.replace("#/item/","")}`  
+  }
+  
   return (
     <div className='item_header'>
       <div className='item_menu d-flex align-items-center justify-content-start pl-2'>
@@ -23,7 +29,7 @@ function ItemHeader(props) {
             </h1>
         </div>
         <div className='item_download d-flex align-items-center justify-content-end pr-2'>
-            <Button className='item_download_button'>Download</Button>
+            <Button onClick={handleDownload} className='item_download_button'>Download</Button>
         </div>
     </div>
   )

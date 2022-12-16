@@ -28,7 +28,7 @@ function Itempage() {
 
   return (
     <>
-      <ItemHeader />
+      <ItemHeader/>
       <div className='item'>
         {
         product
