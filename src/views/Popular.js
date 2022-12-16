@@ -23,7 +23,7 @@ function Popular({
   useEffect(()=>{
     if(reduxAppList.popular_applist.length===0){
       setAppListPending(true)
-      fetch("/v7/applist.php?p=1&type=top",{
+      fetch(`${process.env.REACT_APP_API}/v7/applist.php?p=1&type=top`,{
         method:"GET"
       })
       .then(res=>{
@@ -47,7 +47,7 @@ function Popular({
     const handleScroll = event => {
       if(reduxAppList.popular_applist.length>0 && popularBodyHeight.current && (window.scrollY + window.innerHeight)===(popularBodyHeight.current.clientHeight+60)){
         setPending(true)
-        fetch(`/v7/applist.php?p=${page}&type=new`,{
+        fetch(`${process.env.REACT_APP_API}/v7/applist.php?p=${page}&type=new`,{
           method:"GET"
         })
         .then(res=>{

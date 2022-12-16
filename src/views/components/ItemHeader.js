@@ -29,7 +29,7 @@ function ItemHeader(props) {
             </h1>
         </div>
         <div className='item_download d-flex align-items-center justify-content-end pr-2'>
-            <Button onClick={handleDownload} className='item_download_button'>Download</Button>
+            <Button onClick={handleDownload} className='item_download_button'>Install</Button>
         </div>
     </div>
   )

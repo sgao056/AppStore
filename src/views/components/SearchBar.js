@@ -26,7 +26,7 @@ function SearchBar(props) {
       else{
         setPending(true)
         if(tweaked){
-          fetch(`/v7/tweak_search.php?q=${searchValue}`,{
+          fetch(`${process.env.REACT_APP_API}/v7/tweak_search.php?q=${searchValue}`,{
             method:"GET"
           })
           .then(res=>{
@@ -43,7 +43,7 @@ function SearchBar(props) {
           })
         }
         else{
-          fetch(`/v7/appsearch.php?q=${searchValue}`,{
+          fetch(`${process.env.REACT_APP_API}/v7/appsearch.php?q=${searchValue}`,{
             method:"GET"
           })
           .then(res=>{

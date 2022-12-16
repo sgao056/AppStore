@@ -25,7 +25,7 @@ function Latest({
   useEffect(async ()=>{
     if(reduxAppList.latest_applist.length===0){
       setAppListPending(true)
-      await fetch(`/v7/applist.php?p=${page}&type=new`,{
+      await fetch(`${process.env.REACT_APP_API}/v7/applist.php?p=${page}&type=new`,{
         method:"GET"
       })
       .then(res=>{
@@ -45,7 +45,7 @@ function Latest({
       })
     }
     if(reduxAppList.popular_applist.length===0){
-      fetch("/v7/applist.php?p=1&type=top",{
+      fetch(`${process.env.REACT_APP_API}/v7/applist.php?p=1&type=top`,{
         method:"GET"
       })
       .then(res=>{
@@ -61,7 +61,7 @@ function Latest({
       })
     }
     if(reduxAppList.tweaked_applist.length===0){
-      fetch("/v7/tweak_list.php?p=1",{
+      fetch(`${process.env.REACT_APP_API}/v7/tweak_list.php?p=1`,{
         method:"GET"
       })
       .then(res=>{
@@ -82,7 +82,7 @@ function Latest({
     const handleScroll = event => {
       if(reduxAppList.latest_applist.length>0 && latestBodyHeight.current && (window.scrollY + window.innerHeight)===(latestBodyHeight.current.clientHeight+60)){
         setPending(true)
-        fetch(`/v7/applist.php?p=${page}&type=top`,{
+        fetch(`${process.env.REACT_APP_API}/v7/applist.php?p=${page}&type=top`,{
           method:"GET"
         })
         .then(res=>{

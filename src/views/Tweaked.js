@@ -23,7 +23,7 @@ function Tweaked({
   useEffect(()=>{
     if(reduxAppList.tweaked_applist.length===0){
       setAppListPending(true)
-      fetch(`/v7/tweak_list.php?p=${page}`,{
+      fetch(`${process.env.REACT_APP_API}/v7/tweak_list.php?p=${page}`,{
         method:"GET"
       })
       .then(res=>{
@@ -48,7 +48,7 @@ function Tweaked({
     const handleScroll = event => {
       if(reduxAppList.tweaked_applist.length>0 && tweakedBodyHeight.current && (window.scrollY + window.innerHeight)===(tweakedBodyHeight.current.clientHeight+60)){
         setPending(true)
-        fetch(`/v7/tweak_list.php?p=${page}&`,{
+        fetch(`${process.env.REACT_APP_API}/v7/tweak_list.php?p=${page}&`,{
           method:"GET"
         })
         .then(res=>{

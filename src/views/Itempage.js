@@ -12,7 +12,7 @@ function Itempage() {
   const [enDetails, setEnDetails] = useState(false)
 
   useEffect(()=>{
-    fetch(`/v7/appinfo.php?id=${window.location.hash.replace("#/item/","")}/`,{
+    fetch(`${process.env.REACT_APP_API}/v7/appinfo.php?id=${window.location.hash.replace("#/item/","")}/`,{
       method:"GET"
     })
     .then(res=>{
