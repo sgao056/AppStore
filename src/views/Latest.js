@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { chargeLatestApplist, chargePopularApplist, chargeTweakedApplist } from 'redux/actions'
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import SearchBar from './components/SearchBar'
 import ItemsMap from './components/ItemsMap'
+import HomeHeader from './components/HomeHeader';
+import Sidenav from './components/Sidenav';
 
 
 function Latest({
@@ -67,10 +69,35 @@ function Latest({
     }
   },[])
 
+  const [ menuModalOpen,setMenuModalOpen ] = useState(false)
+  const [ itemMapList, setItemMapList ] = useState(null)
+
+  const bodyHeight = useRef();
+
+  const handleSearch = (list) => {
+    setItemMapList(list)
+  } 
+
+  useEffect(() => {
+    const handleScroll = event => {
+      if((window.scrollY + window.innerHeight)===(bodyHeight.current.clientHeight+60)){
+        console.log("getnewdata")
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <div>
-        <SearchBar />
-        <ItemsMap items={reduxAppList.latest_applist} itemsPending={appListPending}/>
+    <div className='bodyHeight' ref={bodyHeight}>
+        <Sidenav menuModalOpen={menuModalOpen} setMenuModalOpen={setMenuModalOpen}/>
+        <HomeHeader  menuModalOpen={menuModalOpen} setMenuModalOpen={setMenuModalOpen}/>
+        <SearchBar handleSearch={handleSearch}/>
+        <ItemsMap items={reduxAppList.latest_applist} itemsPending={appListPending} itemMapList={itemMapList} />
     </div>
   )
 }

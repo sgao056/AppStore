@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import { connect } from 'react-redux';
 import {
   HashRouter as Router,
@@ -6,8 +6,6 @@ import {
   Switch,
   Redirect
 } from 'react-router-dom';
-import HomeHeader from './views/components/HomeHeader';
-import Sidenav from './views/components/Sidenav';
 import './views/css/universal.scss'
 
 const Itempage = React.lazy(() =>
@@ -24,14 +22,12 @@ const Tweaked = React.lazy(() =>
 );
 
 const App = () => {
-  const [menuModalOpen,setMenuModalOpen] = useState(false)
+
   return (
     <div className="h-100">
         <>
           <Suspense fallback={<div className="loading" />}>
             <Router>
-              <Sidenav menuModalOpen={menuModalOpen} setMenuModalOpen={setMenuModalOpen}/>
-              <HomeHeader  menuModalOpen={menuModalOpen} setMenuModalOpen={setMenuModalOpen}/>
               <Switch>
                 <Route
                   path="/latest"

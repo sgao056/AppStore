@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import SearchBar from './components/SearchBar'
 import ItemsMap from './components/ItemsMap'
-
+import HomeHeader from './components/HomeHeader';
+import Sidenav from './components/Sidenav';
 
 function Popular({
   reduxChargePopularApplist,
@@ -25,7 +26,6 @@ function Popular({
       })
       .then((res)=>{
         if(res && res.info){
-          console.log(res.info)
           setAppListPending(false)
           reduxChargePopularApplist(res.info)
         }
@@ -33,10 +33,19 @@ function Popular({
     }
   },[])
 
+  const [ menuModalOpen,setMenuModalOpen ] = useState(false)
+  const [ itemMapList, setItemMapList ] = useState(null)
+  const handleSearch = (list) => {
+    setItemMapList(list)
+  } 
+
+
   return (
     <div>
-        <SearchBar />
-        <ItemsMap items={reduxAppList.popular_applist} itemsPending={appListPending}/>
+        <Sidenav menuModalOpen={menuModalOpen} setMenuModalOpen={setMenuModalOpen}/>
+        <HomeHeader  menuModalOpen={menuModalOpen} setMenuModalOpen={setMenuModalOpen}/>
+        <SearchBar handleSearch={handleSearch}/>
+        <ItemsMap items={reduxAppList.popular_applist} itemsPending={appListPending} itemMapList={itemMapList} />
     </div>
   )
 }

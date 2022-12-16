@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import SearchBar from './components/SearchBar'
 import ItemsMap from './components/ItemsMap'
-
+import HomeHeader from './components/HomeHeader';
+import Sidenav from './components/Sidenav';
 
 function Tweaked({
   reduxChargeTweakedApplist,
@@ -25,7 +26,6 @@ function Tweaked({
       })
       .then((res)=>{
         if(res && res.info){
-          console.log(res.info)
           setAppListPending(false)
           reduxChargeTweakedApplist(res.info)
         }
@@ -33,10 +33,18 @@ function Tweaked({
     }
   },[])
 
+  const [ menuModalOpen,setMenuModalOpen ] = useState(false)
+  const [ itemMapList, setItemMapList ] = useState(null)
+  const handleSearch = (list) => {
+    setItemMapList(list)
+  } 
+
   return (
     <div>
-        <SearchBar />
-        <ItemsMap items={reduxAppList.tweaked_applist} itemsPending={appListPending}/>
+        <Sidenav menuModalOpen={menuModalOpen} setMenuModalOpen={setMenuModalOpen}/>
+        <HomeHeader  menuModalOpen={menuModalOpen} setMenuModalOpen={setMenuModalOpen}/>
+        <SearchBar handleSearch={handleSearch}/>
+        <ItemsMap items={reduxAppList.tweaked_applist} itemsPending={appListPending} itemMapList={itemMapList} tweaked/>
     </div>
   )
 }
