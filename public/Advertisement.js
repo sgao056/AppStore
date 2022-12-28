@@ -1,6 +1,9 @@
-const advertisement = document.getElementById('advertisement');
 
-const adArray = [
+if(!advertisement){
+  advertisement = document.getElementById('advertisement')
+};
+
+adArray = [
     {
         name:"ad 1", 
         text:"insert ad 1"

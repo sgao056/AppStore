@@ -18,7 +18,7 @@ function HomepageItemsMap(props) {
   }
   
   return (
-    <div className='d-flex justify-content-center align-items-center' style={{flexDirection:"column",overflowY:"scroll"}}>
+    <div className='d-flex justify-content-center align-items-center' style={{flexDirection:"column"}}>
         {
             itemsPending
             ?
