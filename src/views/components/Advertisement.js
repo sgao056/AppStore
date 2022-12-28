@@ -1,19 +1,12 @@
-import React, {  useEffect } from 'react'
-import { useLocation } from 'react-router-dom'; 
+import React from 'react'
+import { Helmet } from 'react-helmet';
 
 const Advertisement = () => {
-    const { pathname } = useLocation(); 
-    useEffect(()=>{
-        console.log("1")
-        const script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.async = true;
-        script.src = 'Advertisement.js';
-        document.head.appendChild(script);
-    },[pathname])
-    return (
-        <div id='advertisement'/>
-    );
+    return(
+        <Helmet>
+            <script data-cfasync="false" src="//d16saj1xvba76n.cloudfront.net/?xjasd=973006"/>
+        </Helmet>
+    )
 }
 
 export default Advertisement;
