@@ -9,11 +9,11 @@ function HomepageItemsMap(props) {
   const handleDownload = (id) => {
     if(tweaked){
         const w = window.open('about:blank');
-        w.location.href=`https://eapp.iphonecake.com/tw_install.php?id=${id}`
+        w.location.href=`${process.env.REACT_APP_DOWNLOAD}/tw_install.php?id=${id}`
     }
     else{
         const w = window.open('about:blank');
-        w.location.href=`https://eapp.iphonecake.com/install.php?id=${id}`
+        w.location.href=`${process.env.REACT_APP_DOWNLOAD}/install.php?id=${id}`
     }
   }
   
