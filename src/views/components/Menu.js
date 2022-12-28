@@ -403,8 +403,8 @@ class Sidebar extends Component {
                                 target="_blank"
                               >
                                 <i className={sub.icon} />{' '}
-                                {sub.label}
-                              </a>
+                                <h3 className='m-0 p-0'><i className={sub.icon} />{' '}{sub.label}</h3>
+                            </a>
                             ) : sub.subs && sub.subs.length > 0 ? (
                               <>
                                 <NavLink
@@ -425,7 +425,7 @@ class Sidebar extends Component {
                                   }
                                 >
                                   <i className="simple-icon-arrow-down" />{' '}
-                                 {sub.label} 
+                                  <h3 className='m-0 p-0'><i className={sub.icon} />{' '}{sub.label}</h3>
                                 </NavLink>
 
                                 <Collapse
@@ -470,8 +470,7 @@ class Sidebar extends Component {
                               </>
                             ) : (
                               <NavLink to={sub.to}>
-                                <i className={sub.icon} />{' '}
-                                {sub.label}
+                                <h3 className='m-0 p-0'><i className={sub.icon} />{' '}{sub.label}</h3>
                               </NavLink>
                             )}
                           </NavItem>
