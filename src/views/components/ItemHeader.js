@@ -7,7 +7,7 @@ function ItemHeader(props) {
 
   const handleDownload = () => {
       const w = window.open('about:blank');
-      w.location.href=`https://eapp.iphonecake.com/install.php?id=${window.location.hash.replace("#/item/","")}`  
+      w.location.href=`${process.env.REACT_APP_DOWNLOAD}/install.php?id=${window.location.hash.replace("#/item/","")}`  
   }
   
   return (
